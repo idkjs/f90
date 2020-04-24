@@ -1,0 +1,554 @@
+
+** Conflict (shift/reduce) in state 87.
+** Tokens involved: NEQ EQEQ
+** The following explanations concentrate on token NEQ.
+** This state is reached from main after reading:
+
+PROGRAM IDENT br seq_var RETURN NOT exp 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+PROGRAM IDENT br top_block CONTAINS br seq_subprogram END PROGRAM ident_or_blank eof 
+                 seq_var seq_decl 
+                         decl seq_decl 
+                         one_line_decl 
+                         RETURN exp br 
+                                (?)
+
+** In state 87, looking ahead at NEQ, shifting is permitted
+** because of the following sub-derivation:
+
+logical 
+NOT exp 
+    comp 
+    exp . NEQ exp 
+
+** In state 87, looking ahead at NEQ, reducing production
+** logical -> NOT exp 
+** is permitted because of the following sub-derivation:
+
+comp 
+exp NEQ exp // lookahead token appears
+logical // lookahead token is inherited
+NOT exp . 
+
+** Conflict (shift/reduce) in state 86.
+** Tokens involved: NEQ EQEQ
+** The following explanations concentrate on token NEQ.
+** This state is reached from main after reading:
+
+PROGRAM IDENT br seq_var RETURN MINUS exp 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+PROGRAM IDENT br top_block CONTAINS br seq_subprogram END PROGRAM ident_or_blank eof 
+                 seq_var seq_decl 
+                         decl seq_decl 
+                         one_line_decl 
+                         RETURN exp br 
+                                (?)
+
+** In state 86, looking ahead at NEQ, shifting is permitted
+** because of the following sub-derivation:
+
+MINUS exp 
+      comp 
+      exp . NEQ exp 
+
+** In state 86, looking ahead at NEQ, reducing production
+** exp -> MINUS exp 
+** is permitted because of the following sub-derivation:
+
+comp 
+exp NEQ exp // lookahead token appears
+MINUS exp . 
+
+** Conflict (shift/reduce) in state 61.
+** Tokens involved: NEQ EQEQ
+** The following explanations concentrate on token NEQ.
+** This state is reached from main after reading:
+
+PROGRAM IDENT br seq_var RETURN exp DIV exp 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+PROGRAM IDENT br top_block CONTAINS br seq_subprogram END PROGRAM ident_or_blank eof 
+                 seq_var seq_decl 
+                         decl seq_decl 
+                         one_line_decl 
+                         RETURN exp br 
+                                (?)
+
+** In state 61, looking ahead at NEQ, reducing production
+** arith -> exp DIV exp 
+** is permitted because of the following sub-derivation:
+
+comp 
+exp NEQ exp // lookahead token appears
+arith // lookahead token is inherited
+exp DIV exp . 
+
+** In state 61, looking ahead at NEQ, shifting is permitted
+** because of the following sub-derivation:
+
+arith 
+exp DIV exp 
+        comp 
+        exp . NEQ exp 
+
+** Conflict (shift/reduce) in state 59.
+** Tokens involved: NEQ EQEQ
+** The following explanations concentrate on token NEQ.
+** This state is reached from main after reading:
+
+PROGRAM IDENT br seq_var RETURN exp MINUS exp 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+PROGRAM IDENT br top_block CONTAINS br seq_subprogram END PROGRAM ident_or_blank eof 
+                 seq_var seq_decl 
+                         decl seq_decl 
+                         one_line_decl 
+                         RETURN exp br 
+                                (?)
+
+** In state 59, looking ahead at NEQ, reducing production
+** arith -> exp MINUS exp 
+** is permitted because of the following sub-derivation:
+
+comp 
+exp NEQ exp // lookahead token appears
+arith // lookahead token is inherited
+exp MINUS exp . 
+
+** In state 59, looking ahead at NEQ, shifting is permitted
+** because of the following sub-derivation:
+
+arith 
+exp MINUS exp 
+          comp 
+          exp . NEQ exp 
+
+** Conflict (shift/reduce) in state 57.
+** Tokens involved: NEQ EQEQ
+** The following explanations concentrate on token NEQ.
+** This state is reached from main after reading:
+
+PROGRAM IDENT br seq_var RETURN exp GEQ exp 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+PROGRAM IDENT br top_block CONTAINS br seq_subprogram END PROGRAM ident_or_blank eof 
+                 seq_var seq_decl 
+                         decl seq_decl 
+                         one_line_decl 
+                         RETURN exp br 
+                                comp 
+                                (?)
+
+** In state 57, looking ahead at NEQ, reducing production
+** comp -> exp GEQ exp 
+** is permitted because of the following sub-derivation:
+
+exp NEQ exp // lookahead token appears
+comp // lookahead token is inherited
+exp GEQ exp . 
+
+** In state 57, looking ahead at NEQ, shifting is permitted
+** because of the following sub-derivation:
+
+exp GEQ exp 
+        comp 
+        exp . NEQ exp 
+
+** Conflict (shift/reduce) in state 55.
+** Tokens involved: NEQ EQEQ
+** The following explanations concentrate on token NEQ.
+** This state is reached from main after reading:
+
+PROGRAM IDENT br seq_var RETURN exp GREATER exp 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+PROGRAM IDENT br top_block CONTAINS br seq_subprogram END PROGRAM ident_or_blank eof 
+                 seq_var seq_decl 
+                         decl seq_decl 
+                         one_line_decl 
+                         RETURN exp br 
+                                comp 
+                                (?)
+
+** In state 55, looking ahead at NEQ, reducing production
+** comp -> exp GREATER exp 
+** is permitted because of the following sub-derivation:
+
+exp NEQ exp // lookahead token appears
+comp // lookahead token is inherited
+exp GREATER exp . 
+
+** In state 55, looking ahead at NEQ, shifting is permitted
+** because of the following sub-derivation:
+
+exp GREATER exp 
+            comp 
+            exp . NEQ exp 
+
+** Conflict (shift/reduce) in state 53.
+** Tokens involved: NEQ EQEQ
+** The following explanations concentrate on token NEQ.
+** This state is reached from main after reading:
+
+PROGRAM IDENT br seq_var RETURN exp LEQ exp 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+PROGRAM IDENT br top_block CONTAINS br seq_subprogram END PROGRAM ident_or_blank eof 
+                 seq_var seq_decl 
+                         decl seq_decl 
+                         one_line_decl 
+                         RETURN exp br 
+                                comp 
+                                (?)
+
+** In state 53, looking ahead at NEQ, reducing production
+** comp -> exp LEQ exp 
+** is permitted because of the following sub-derivation:
+
+exp NEQ exp // lookahead token appears
+comp // lookahead token is inherited
+exp LEQ exp . 
+
+** In state 53, looking ahead at NEQ, shifting is permitted
+** because of the following sub-derivation:
+
+exp LEQ exp 
+        comp 
+        exp . NEQ exp 
+
+** Conflict (shift/reduce) in state 51.
+** Tokens involved: NEQ EQEQ
+** The following explanations concentrate on token NEQ.
+** This state is reached from main after reading:
+
+PROGRAM IDENT br seq_var RETURN exp AND exp 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+PROGRAM IDENT br top_block CONTAINS br seq_subprogram END PROGRAM ident_or_blank eof 
+                 seq_var seq_decl 
+                         decl seq_decl 
+                         one_line_decl 
+                         RETURN exp br 
+                                (?)
+
+** In state 51, looking ahead at NEQ, shifting is permitted
+** because of the following sub-derivation:
+
+logical 
+exp AND exp 
+        comp 
+        exp . NEQ exp 
+
+** In state 51, looking ahead at NEQ, reducing production
+** logical -> exp AND exp 
+** is permitted because of the following sub-derivation:
+
+comp 
+exp NEQ exp // lookahead token appears
+logical // lookahead token is inherited
+exp AND exp . 
+
+** Conflict (shift/reduce) in state 46.
+** Tokens involved: NEQ EQEQ
+** The following explanations concentrate on token NEQ.
+** This state is reached from main after reading:
+
+PROGRAM IDENT br seq_var RETURN exp EQV exp 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+PROGRAM IDENT br top_block CONTAINS br seq_subprogram END PROGRAM ident_or_blank eof 
+                 seq_var seq_decl 
+                         decl seq_decl 
+                         one_line_decl 
+                         RETURN exp br 
+                                (?)
+
+** In state 46, looking ahead at NEQ, shifting is permitted
+** because of the following sub-derivation:
+
+logical 
+exp EQV exp 
+        comp 
+        exp . NEQ exp 
+
+** In state 46, looking ahead at NEQ, reducing production
+** logical -> exp EQV exp 
+** is permitted because of the following sub-derivation:
+
+comp 
+exp NEQ exp // lookahead token appears
+logical // lookahead token is inherited
+exp EQV exp . 
+
+** Conflict (shift/reduce) in state 44.
+** Tokens involved: NEQ EQEQ
+** The following explanations concentrate on token NEQ.
+** This state is reached from main after reading:
+
+PROGRAM IDENT br seq_var RETURN exp LESS exp 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+PROGRAM IDENT br top_block CONTAINS br seq_subprogram END PROGRAM ident_or_blank eof 
+                 seq_var seq_decl 
+                         decl seq_decl 
+                         one_line_decl 
+                         RETURN exp br 
+                                comp 
+                                (?)
+
+** In state 44, looking ahead at NEQ, reducing production
+** comp -> exp LESS exp 
+** is permitted because of the following sub-derivation:
+
+exp NEQ exp // lookahead token appears
+comp // lookahead token is inherited
+exp LESS exp . 
+
+** In state 44, looking ahead at NEQ, shifting is permitted
+** because of the following sub-derivation:
+
+exp LESS exp 
+         comp 
+         exp . NEQ exp 
+
+** Conflict (shift/reduce) in state 42.
+** Tokens involved: NEQ EQEQ
+** The following explanations concentrate on token NEQ.
+** This state is reached from main after reading:
+
+PROGRAM IDENT br seq_var RETURN exp MUL exp 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+PROGRAM IDENT br top_block CONTAINS br seq_subprogram END PROGRAM ident_or_blank eof 
+                 seq_var seq_decl 
+                         decl seq_decl 
+                         one_line_decl 
+                         RETURN exp br 
+                                (?)
+
+** In state 42, looking ahead at NEQ, reducing production
+** arith -> exp MUL exp 
+** is permitted because of the following sub-derivation:
+
+comp 
+exp NEQ exp // lookahead token appears
+arith // lookahead token is inherited
+exp MUL exp . 
+
+** In state 42, looking ahead at NEQ, shifting is permitted
+** because of the following sub-derivation:
+
+arith 
+exp MUL exp 
+        comp 
+        exp . NEQ exp 
+
+** Conflict (shift/reduce) in state 40.
+** Tokens involved: PLUS OR NEQV NEQ MUL MINUS LESS LEQ GREATER GEQ EQV EQEQ DIV AND
+** The following explanations concentrate on token PLUS.
+** This state is reached from main after reading:
+
+PROGRAM IDENT br seq_var RETURN exp EQEQ exp 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+PROGRAM IDENT br top_block CONTAINS br seq_subprogram END PROGRAM ident_or_blank eof 
+                 seq_var seq_decl 
+                         decl seq_decl 
+                         one_line_decl 
+                         RETURN exp br 
+                                (?)
+
+** In state 40, looking ahead at PLUS, shifting is permitted
+** because of the following sub-derivation:
+
+comp 
+exp EQEQ exp 
+         arith 
+         exp . PLUS exp 
+
+** In state 40, looking ahead at PLUS, reducing production
+** comp -> exp EQEQ exp 
+** is permitted because of the following sub-derivation:
+
+arith 
+exp PLUS exp // lookahead token appears
+comp // lookahead token is inherited
+exp EQEQ exp . 
+
+** Conflict (shift/reduce) in state 38.
+** Tokens involved: NEQ EQEQ
+** The following explanations concentrate on token NEQ.
+** This state is reached from main after reading:
+
+PROGRAM IDENT br seq_var RETURN exp NEQV exp 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+PROGRAM IDENT br top_block CONTAINS br seq_subprogram END PROGRAM ident_or_blank eof 
+                 seq_var seq_decl 
+                         decl seq_decl 
+                         one_line_decl 
+                         RETURN exp br 
+                                (?)
+
+** In state 38, looking ahead at NEQ, shifting is permitted
+** because of the following sub-derivation:
+
+logical 
+exp NEQV exp 
+         comp 
+         exp . NEQ exp 
+
+** In state 38, looking ahead at NEQ, reducing production
+** logical -> exp NEQV exp 
+** is permitted because of the following sub-derivation:
+
+comp 
+exp NEQ exp // lookahead token appears
+logical // lookahead token is inherited
+exp NEQV exp . 
+
+** Conflict (shift/reduce) in state 36.
+** Tokens involved: PLUS OR NEQV NEQ MUL MINUS LESS LEQ GREATER GEQ EQV EQEQ DIV AND
+** The following explanations concentrate on token PLUS.
+** This state is reached from main after reading:
+
+PROGRAM IDENT br seq_var RETURN exp NEQ exp 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+PROGRAM IDENT br top_block CONTAINS br seq_subprogram END PROGRAM ident_or_blank eof 
+                 seq_var seq_decl 
+                         decl seq_decl 
+                         one_line_decl 
+                         RETURN exp br 
+                                (?)
+
+** In state 36, looking ahead at PLUS, shifting is permitted
+** because of the following sub-derivation:
+
+comp 
+exp NEQ exp 
+        arith 
+        exp . PLUS exp 
+
+** In state 36, looking ahead at PLUS, reducing production
+** comp -> exp NEQ exp 
+** is permitted because of the following sub-derivation:
+
+arith 
+exp PLUS exp // lookahead token appears
+comp // lookahead token is inherited
+exp NEQ exp . 
+
+** Conflict (shift/reduce) in state 34.
+** Tokens involved: NEQ EQEQ
+** The following explanations concentrate on token NEQ.
+** This state is reached from main after reading:
+
+PROGRAM IDENT br seq_var RETURN exp OR exp 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+PROGRAM IDENT br top_block CONTAINS br seq_subprogram END PROGRAM ident_or_blank eof 
+                 seq_var seq_decl 
+                         decl seq_decl 
+                         one_line_decl 
+                         RETURN exp br 
+                                (?)
+
+** In state 34, looking ahead at NEQ, shifting is permitted
+** because of the following sub-derivation:
+
+logical 
+exp OR exp 
+       comp 
+       exp . NEQ exp 
+
+** In state 34, looking ahead at NEQ, reducing production
+** logical -> exp OR exp 
+** is permitted because of the following sub-derivation:
+
+comp 
+exp NEQ exp // lookahead token appears
+logical // lookahead token is inherited
+exp OR exp . 
+
+** Conflict (shift/reduce) in state 32.
+** Tokens involved: NEQ EQEQ
+** The following explanations concentrate on token NEQ.
+** This state is reached from main after reading:
+
+PROGRAM IDENT br seq_var RETURN exp PLUS exp 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+PROGRAM IDENT br top_block CONTAINS br seq_subprogram END PROGRAM ident_or_blank eof 
+                 seq_var seq_decl 
+                         decl seq_decl 
+                         one_line_decl 
+                         RETURN exp br 
+                                (?)
+
+** In state 32, looking ahead at NEQ, reducing production
+** arith -> exp PLUS exp 
+** is permitted because of the following sub-derivation:
+
+comp 
+exp NEQ exp // lookahead token appears
+arith // lookahead token is inherited
+exp PLUS exp . 
+
+** In state 32, looking ahead at NEQ, shifting is permitted
+** because of the following sub-derivation:
+
+arith 
+exp PLUS exp 
+         comp 
+         exp . NEQ exp 
