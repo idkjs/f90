@@ -1,3 +1,4 @@
+default : hello
 OCAMLC=ocamlfind ocamlc ${LIB}
 OCAMLOPT=ocamlfind ocamlc ${LIB}
 OCAMLDEP=ocamlfind ocamldep
@@ -17,6 +18,11 @@ all: clean f90 test
 depend:
 	$(OCAMLDEP) *.ml > .depend
 
+hello: location.ml parse_tree.ml lexer.ml
+	ocamlopt -o $@ $^
+	cat location.ml
+	cat parse_tree.ml
+	cat lexer.ml
 test:
 	for file in `find test -name *.f90 | sort`; do \
 	echo $${file} ":"; \
@@ -26,6 +32,13 @@ test:
 clean:
 	rm -rf *.cm? parser.ml parser.mli lexer.ml *.output
 
+%.re : %.ml
+	refmt -p re $< > $@
+%.rei : %.mli
+	refmt -p rei $< > $@
+all: location.ml parse_tree.ml
+	ocamlopt -o $@ $^
+	clean f90 test
 parser.cmo: parser.ml parser.cmi
 	$(OCAMLC) -c $<
 

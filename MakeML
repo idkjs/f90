@@ -1,0 +1,14 @@
+
+default : hello
+# take in a .re file return a .ml file.
+%.ml : %.re
+	refmt -p ml $< > $@
+%.re : %.ml
+	refmt -p re $< > $@
+%.rei : %.mli
+	refmt -p rei $< > $@
+hello: location.ml parse_tree.ml lexer.ml
+	ocamlopt -o $@ $^
+	cat location.ml
+	cat parse_tree.ml
+	cat lexer.ml
